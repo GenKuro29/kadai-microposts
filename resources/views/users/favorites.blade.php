@@ -21,7 +21,10 @@
                 <li role="presentation" class="{{ Request::is('users/*/favorites') ? 'active' : '' }}"><a href="{{ route('saved_favorites', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>
  
             </ul>
-            @include('users.users', ['users' => $users])
+            @if (count($favorites) > 0)
+                @include('microposts.microposts', ['microposts' => $favorites])
+            @endif
+
         </div>
     </div>
 @endsection
