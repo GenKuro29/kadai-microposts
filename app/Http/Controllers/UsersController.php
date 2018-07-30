@@ -68,7 +68,7 @@ class UsersController extends Controller
     {
         
         $user = User::find($id);
-        $favorites = $user->saving_favorites()->paginate(10);
+        $favorites = $user->saving_favorites()->orderBy('created_at', 'desc')->paginate(10);
         
         
         $data = [
